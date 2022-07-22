@@ -1,0 +1,111 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$mercury-primary: (
+  50 : #e6f5ed,
+  100 : #bfe7d2,
+  200 : #95d7b4,
+  300 : #6bc695,
+  400 : #4bba7f,
+  500 : #2bae68,
+  600 : #26a760,
+  700 : #209d55,
+  800 : #1a944b,
+  900 : #10843a,
+  A100 : #b7ffce,
+  A200 : #84ffab,
+  A400 : #51ff88,
+  A700 : #37ff76,
+  contrast: (
+      50 : #21201e,
+      100 : #21201e,
+      200 : #21201e,
+      300 : #21201e,
+      400 : #21201e,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #21201e,
+      A200 : #21201e,
+      A400 : #21201e,
+      A700 : #21201e,
+  )
+);
+
+$mercury-accent: (
+    50 : #ebedf3,
+    100 : #ccd1e2,
+    200 : #abb3ce,
+    300 : #8994ba,
+    400 : #6f7dac,
+    500 : #56669d,
+    600 : #4f5e95,
+    700 : #45538b,
+    800 : #3c4981,
+    900 : #2b386f,
+    A100 : #b7c3ff,
+    A200 : #8498ff,
+    A400 : #516dff,
+    A700 : #3758ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$mercury-warn: (
+    50 : #fef2f2,
+    100 : #fedfde,
+    200 : #fdcac8,
+    300 : #fcb4b1,
+    400 : #fba4a1,
+    500 : #fa9490,
+    600 : #f98c88,
+    700 : #f9817d,
+    800 : #f87773,
+    900 : #f66561,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fffcfc,
+    A700 : #ffe3e2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+/* ======== Angular material custom theme ======== */ 
+$my-custom-primary: mat-palette($mercury-primary);
+$my-custom-accent: mat-palette($mercury-accent);
+$my-custom-warn: mat-palette($mercury-warn);
+$my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent, $my-custom-warn);
+
+@include angular-material-theme($my-custom-theme);
