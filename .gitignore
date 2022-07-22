@@ -2,6 +2,7 @@
 
 # Compiled output
 /client/dist
+/client/.angular
 /tmp
 /out-tsc
 /bazel-out
@@ -22,6 +23,8 @@ yarn-error.log
 *.sublime-workspace
 
 # Visual Studio Code
+/client/.vscode
+/server/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
