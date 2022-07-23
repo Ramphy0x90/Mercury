@@ -7,6 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 const materialModules = [
   CommonModule,
@@ -15,7 +17,9 @@ const materialModules = [
   MatMenuModule,
   MatSidenavModule,
   MatListModule,
-  MatButtonModule
+  MatButtonModule,
+  MatInputModule,
+  MatSelectModule
 ];
 
 @NgModule({
