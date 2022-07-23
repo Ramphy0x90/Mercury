@@ -5,7 +5,6 @@
 
 .carousel {
     flex: 1 1 100%;
-    max-width: var(--mercury-main-gallery-w);
     height: var(--mercury-main-gallery-h);
     background-color: var(--mercury-dark);
     color: var(--mercury-light);
