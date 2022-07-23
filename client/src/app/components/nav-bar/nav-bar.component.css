@@ -14,9 +14,7 @@ mat-toolbar {
 
 .nav-bar-search input {
     max-width: 700px;
-    margin-left: 25px;
-    border: none;
-    outline: none;
+    margin-left: var(--mercury-space-2);
 }
 
 .nav-bar-search mat-icon {
@@ -24,3 +22,17 @@ mat-toolbar {
     left: 55px;
     color: var(--mercury-primary);
 }
+
+@media (min-width: 576px) { }
+
+@media (min-width: 768px) {
+    mat-toolbar {
+        margin-bottom: var(--mercury-space-3);
+    }    
+}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) { }
+
+@media (min-width: 1400px) {}
