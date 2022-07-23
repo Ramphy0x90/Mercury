@@ -1,0 +1,27 @@
+<div class="main-gallery-container">
+    <div id="gallery" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div [ngClass]="getClass(index)" *ngFor="let item of galleryItems; let index = index">
+                <div class="gallery-item-label">Lorem ipsum lorena ipusu {{index}}</div>
+                <img [src]="item.image" class="d-block w-100" [alt]="item.alt">
+            </div>
+        </div>
+        <button class="carousel-control-prev gallery-btn-container" type="button" data-bs-target="#gallery"
+            data-bs-slide="prev">
+            <div class="gallery-btn">
+                <span class="carousel-control-prev-icon"></span>
+            </div>
+        </button>
+        <button class="carousel-control-next gallery-btn-container" type="button" data-bs-target="#gallery"
+            data-bs-slide="next">
+            <div class="gallery-btn">
+                <span class="carousel-control-next-icon"></span>
+            </div>
+        </button>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#gallery" *ngFor="let item of galleryItems; let index = index" 
+            [attr.data-bs-slide-to]="index"
+            [ngClass]="{'active': index == 0}" ></button>
+        </div>
+    </div>
+</div>
