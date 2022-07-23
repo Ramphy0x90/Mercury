@@ -1,0 +1,6 @@
+.main-product-gallery-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    gap: var(--mercury-space);
+}

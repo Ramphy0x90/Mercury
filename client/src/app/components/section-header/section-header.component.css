@@ -1,0 +1,21 @@
+.main-section-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: var(--mercury-space);
+    margin-bottom: var(--mercury-space-1);
+}
+
+p {
+    flex: 0 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+hr {
+    width: 100%;
+    border-top: 2px solid var(--mercury-primary);
+    opacity: 1;
+}

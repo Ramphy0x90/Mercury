@@ -1,3 +1,14 @@
 <div class="main-home-container">
     <app-gallery></app-gallery>
+
+    <div class="primary-section section">
+        <div class="left-column">
+            <app-section-header [text]="'Categoria productos'"></app-section-header>
+            <app-product-categories-view></app-product-categories-view>
+        </div>
+        <div class="right-column">
+            <app-section-header [text]="'Lo mas vendido'"></app-section-header>
+            <app-product-gallery></app-product-gallery>
+        </div>
+    </div>
 </div>

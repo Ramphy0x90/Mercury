@@ -12,13 +12,21 @@ import { MaterialModule } from './material.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './containers/home/home.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { ProductGalleryComponent } from './components/product-gallery/product-gallery.component';
+import { ProductCategoriesViewComponent } from './components/product-categories-view/product-categories-view.component';
+import { ProductComponent } from './components/product/product.component';
+import { SectionHeaderComponent } from './components/section-header/section-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    GalleryComponent
+    GalleryComponent,
+    ProductGalleryComponent,
+    ProductCategoriesViewComponent,
+    ProductComponent,
+    SectionHeaderComponent
   ],
   imports: [
     BrowserModule,
