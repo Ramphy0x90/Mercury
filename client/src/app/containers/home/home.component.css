@@ -1,0 +1,8 @@
+.main-home-container {
+    display: flex;
+    justify-content: center;
+}
+
+app-gallery {
+    flex: 1 1 100%;
+}
