@@ -4,6 +4,14 @@
     --mercury-red: #fa9490;
     --mercury-light: #f6f6f6;
     --mercury-dark: #21201e;
+
+    --mercury-main-gallery-w: 1500px;
+    --mercury-main-gallery-h: 350px;
+
+    --mercury-space: 8px;
+    --mercury-space-1: 15px;
+    --mercury-space-2: 25px;
+    --mercury-space-3: 35px;
 }
 
 
