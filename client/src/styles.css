@@ -1,4 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --mercury-primary: #2bae69;
+    --mercury-blue: #56669d;
+    --mercury-red: #fa9490;
+    --mercury-light: #f6f6f6;
+    --mercury-dark: #21201e;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--mercury-light);
+}
+
+input {
+    border: none;
+    outline: none;
+}
