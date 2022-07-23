@@ -18,7 +18,7 @@
 
 .gallery-item-label {
     background-color: var(--mercury-blue);
-    position: fixed;
+    position: absolute;
     margin: var(--mercury-space-2);
     padding: var(--mercury-space) var(--mercury-space-2);
 }
@@ -39,11 +39,7 @@
 
 @media (min-width: 576px) { }
 
-@media (min-width: 768px) {
-    .main-gallery-container {
-        padding: 0 var(--mercury-space-2);
-    }
-}
+@media (min-width: 768px) { }
 
 @media (min-width: 992px) {}
 
