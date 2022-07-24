@@ -1,7 +1,32 @@
 .main-product-gallery-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.product-gallery-container {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
     padding: var(--mercury-space);
     gap: var(--mercury-space);
+}
+
+.move-btn {
+    --size: 30px;
+    position: absolute;
+    display: flex;
+    width: var(--size);
+    height: var(--size);
+    justify-content: center;
+    align-items: center;
+    top: calc(50% - var(--size) / 2);
+    background-color: var(--mercury-primary);
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.btn-right {
+    left: calc(100% - var(--size));
 }

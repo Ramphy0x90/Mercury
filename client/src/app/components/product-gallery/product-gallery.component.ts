@@ -8,10 +8,32 @@ import { Product } from 'src/app/models/product';
 })
 export class ProductGalleryComponent implements OnInit {
   @Input() products!: Product[];
+  productGallery: HTMLDivElement | any;
+  lastScrollPosition!: number;
+  scrollIndex: number | any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.productGallery = document.querySelector('.product-gallery-container');
+    this.scrollIndex = this.productGallery?.scrollLeft;
   }
 
+  scrollLeft() {
+    this.productGallery?.scroll({
+      top: 0,
+      left: this.productGallery?.scrollLeft - 150,
+      behavior: 'smooth'
+    });
+
+  }
+
+  scrollRight() {
+
+    this.productGallery?.scroll({
+      top: 0,
+      left: this.productGallery?.scrollLeft + 150,
+      behavior: 'smooth'
+    });
+  }
 }

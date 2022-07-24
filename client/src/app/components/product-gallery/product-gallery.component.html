@@ -1,3 +1,11 @@
 <div class="main-product-gallery-container">
-    <app-product *ngFor="let product of products" [product]="product"></app-product>
+    <div class="btn-left move-btn" (click)="scrollLeft()">
+        <mat-icon>chevron_left</mat-icon>
+    </div>
+    <div class="product-gallery-container">
+        <app-product *ngFor="let product of products" [product]="product"></app-product>
+    </div>
+    <div class="btn-right move-btn" (click)="scrollRight()">
+        <mat-icon>chevron_right</mat-icon>
+    </div>
 </div>
