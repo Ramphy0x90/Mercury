@@ -1,0 +1,24 @@
+.main-category-card-container {
+    padding: var(--mercury-space);
+}
+
+.main-category-card-container img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.info-container {
+    background-color: var(--mercury-primary);
+    padding:  var(--mercury-space-1) 0;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+}

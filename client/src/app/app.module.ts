@@ -17,6 +17,7 @@ import { ProductGalleryComponent } from './components/product-gallery/product-ga
 import { ProductCategoriesViewComponent } from './components/product-categories-view/product-categories-view.component';
 import { ProductComponent } from './components/product/product.component';
 import { SectionHeaderComponent } from './components/section-header/section-header.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SectionHeaderComponent } from './components/section-header/section-head
     ProductGalleryComponent,
     ProductCategoriesViewComponent,
     ProductComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    CategoryCardComponent
   ],
   imports: [
     BrowserModule,

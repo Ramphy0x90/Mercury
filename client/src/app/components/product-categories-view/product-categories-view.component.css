@@ -1,0 +1,24 @@
+.main-categories-view-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+app-category-card {
+    flex: 0 1 50%;
+}
+
+@media (min-width: 576px) { }
+
+@media (min-width: 768px) {
+    .main-categories-view-container {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 992px) { }
+
+@media (min-width: 1200px) { }
+
+@media (min-width: 1400px) { }
