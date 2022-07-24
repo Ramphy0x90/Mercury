@@ -2,36 +2,35 @@
 @include mat-core();
 
 $mercury-primary: (
-  50 : #e6f5ed,
-  100 : #bfe7d2,
-  200 : #95d7b4,
-  300 : #6bc695,
-  400 : #4bba7f,
-  500 : #2bae68,
-  600 : #26a760,
-  700 : #209d55,
-  800 : #1a944b,
-  900 : #10843a,
-  A100 : #b7ffce,
-  A200 : #84ffab,
-  A400 : #51ff88,
-  A700 : #37ff76,
-  contrast: (
-      50 : #21201e,
-      100 : #21201e,
-      200 : #21201e,
-      300 : #21201e,
-      400 : #21201e,
-      500 : #ffffff,
-      600 : #ffffff,
-      700 : #ffffff,
-      800 : #ffffff,
-      900 : #ffffff,
-      A100 : #21201e,
-      A200 : #21201e,
-      A400 : #21201e,
-      A700 : #21201e,
-  )
+    50 : #e6f5ed,
+    100 : #bfe7d2,
+    200 : #95d7b4,
+    300 : #6bc695,
+    400 : #4bba7f,
+    500 : #2bae68,
+    600 : #26a760,
+    700 : #209d55,
+    800 : #1a944b,
+    900 : #10843a,
+    A100 : #b7ffce,
+    A200 : #84ffab,
+    A400 : #51ff88,
+    A700 : #37ff76,
+    contrast: (50 : #21201e,
+        100 : #21201e,
+        200 : #21201e,
+        300 : #21201e,
+        400 : #21201e,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #21201e,
+        A200 : #21201e,
+        A400 : #21201e,
+        A700 : #21201e,
+    )
 );
 
 $mercury-accent: (
@@ -49,8 +48,7 @@ $mercury-accent: (
     A200 : #8498ff,
     A400 : #516dff,
     A700 : #3758ff,
-    contrast: (
-        50 : #000000,
+    contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #000000,
@@ -83,8 +81,7 @@ $mercury-warn: (
     A200 : #ffffff,
     A400 : #fffcfc,
     A700 : #ffe3e2,
-    contrast: (
-        50 : #000000,
+    contrast: (50 : #000000,
         100 : #000000,
         200 : #000000,
         300 : #000000,
@@ -102,10 +99,47 @@ $mercury-warn: (
 );
 
 
-/* ======== Angular material custom theme ======== */ 
+/* ======== Angular material custom theme ======== */
 $my-custom-primary: mat-palette($mercury-primary);
 $my-custom-accent: mat-palette($mercury-accent);
 $my-custom-warn: mat-palette($mercury-warn);
 $my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent, $my-custom-warn);
 
 @include angular-material-theme($my-custom-theme);
+
+// Star rating theme
+
+$star-utf8: '\2605';
+
+.br-default {
+    --br-font-size: 26px;
+
+    .br-units {
+        align-items: left;
+    }
+
+    .br-unit-inner {
+        &:before {
+            content: $star-utf8;
+            color: var(--br-inactive-color);
+            width: 100%;
+        }
+    }
+
+    .br-active:before {
+        color: var(--br-active-color);
+    }
+
+    .br-fraction {
+        &:after {
+            color: var(--br-active-color);
+            content: $star-utf8;
+            width: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+    }
+
+}

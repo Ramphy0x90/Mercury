@@ -7,7 +7,7 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./product-gallery.component.css']
 })
 export class ProductGalleryComponent implements OnInit {
-  @Input() products: Product[] = [];
+  @Input() products!: Product[];
 
   constructor() { }
 

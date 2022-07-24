@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { BarRatingModule } from "ngx-bar-rating";
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
@@ -33,6 +34,7 @@ import { SectionHeaderComponent } from './components/section-header/section-head
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule,
+    BarRatingModule,
     FlexLayoutModule,
     MaterialModule
   ],

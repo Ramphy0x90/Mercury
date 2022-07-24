@@ -1,12 +1,18 @@
 <mat-card class="main-product-container">
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="...">
+    <img mat-card-image [src]="product.image" [alt]="product.name">
     <mat-card-content>
-        <p>
-            The Shiba Inu is the smallest of the six
-        </p>
+        <div class="info-container">
+            <p class="title">
+                {{product.name}}
+            </p>
+            <p class="description">
+                {{product.description}}
+            </p>
+        </div>
+        <bar-rating [(rate)]="product.rating" [max]="5" [readOnly]="true"></bar-rating>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button><mat-icon>shopping_cart</mat-icon></button>
+        <div class="price-label">{{product.price}}</div>
+        <mat-icon>shopping_cart</mat-icon>
     </mat-card-actions>
 </mat-card>

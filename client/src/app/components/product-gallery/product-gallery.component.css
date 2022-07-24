@@ -2,5 +2,6 @@
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+    padding: var(--mercury-space);
     gap: var(--mercury-space);
 }
