@@ -11,7 +11,7 @@ app-gallery {
     gap: var(--mercury-space-1);
 }
 
-.primary-section {
+.section {
     display: flex;
     gap: var(--mercury-space-1);
     flex-direction: column;
@@ -35,7 +35,7 @@ app-gallery {
         padding: 0 var(--mercury-space-2);
     }
 
-    .primary-section {
+    .section {
         padding: 0;
     }
 }

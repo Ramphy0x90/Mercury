@@ -10,6 +10,12 @@ export class NavBarComponent implements OnInit {
 
   menuItems: NavBarItem[] = [
     {
+      label: 'Home',
+      icon: '',
+      action: '/home',
+      nodes: []
+    },
+    {
       label: 'Productos',
       icon: '',
       action: '',

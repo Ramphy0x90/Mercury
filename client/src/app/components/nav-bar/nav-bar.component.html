@@ -7,7 +7,7 @@
   </div>
 
   <div class="nav-bar-buttons-row" fxHide.xs>
-    <button mat-button *ngFor="let item of menuItems" fxHide.xs>
+    <button mat-button *ngFor="let item of menuItems" fxHide.xs [routerLink]="item.action">
       <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
       {{item.label}}
     </button>
@@ -21,7 +21,7 @@
   <!--Dropdown menu-->
   <mat-menu #dropMenu="matMenu">
     <ng-container *ngFor="let item of menuItems">
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="item.action">
         {{item.label}}
         <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
       </button>

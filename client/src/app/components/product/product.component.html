@@ -1,4 +1,4 @@
-<mat-card class="main-product-container">
+<mat-card class="main-product-container" [routerLink]="['/product', product.id]">
     <img mat-card-image [src]="product.image" [alt]="product.name">
     <mat-card-content>
         <div class="info-container">

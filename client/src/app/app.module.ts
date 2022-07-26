@@ -18,6 +18,8 @@ import { ProductCategoriesViewComponent } from './components/product-categories-
 import { ProductComponent } from './components/product/product.component';
 import { SectionHeaderComponent } from './components/section-header/section-header.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
+import { ProductPageComponent } from './containers/product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CategoryCardComponent } from './components/category-card/category-card.
     ProductCategoriesViewComponent,
     ProductComponent,
     SectionHeaderComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
+    PageNotFoundComponent,
+    ProductPageComponent
   ],
   imports: [
     BrowserModule,
