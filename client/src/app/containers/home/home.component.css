@@ -2,15 +2,6 @@ app-gallery {
     flex: 1 1 100%;
 }
 
-.main-home-container {
-    max-width: var(--mercury-main-w);
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--mercury-space-1);
-}
-
 .section {
     display: flex;
     gap: var(--mercury-space-1);

@@ -30,3 +30,22 @@ input {
     border: none;
     outline: none;
 }
+
+.mercury-container {
+    max-width: var(--mercury-main-w);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--mercury-space-1);
+}
+
+@media (min-width: 768px) {
+    .mercury-container {
+        padding: 0 var(--mercury-space-2);
+    }
+
+    .section {
+        padding: 0;
+    }
+}

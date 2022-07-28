@@ -1,1 +1,11 @@
-<p>product-page works!</p>
+<div class="main-product-page-container mercury-container">
+    <div class="product-info-container">
+        <div class="product-image column">
+            <img [src]="product.image" alt="product.name">
+        </div>
+        <div class="product-data column">
+            <p>{{product.name}}</p>
+            <p>{{product.description}}</p>
+        </div>
+    </div>
+</div>
