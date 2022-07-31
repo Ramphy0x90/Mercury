@@ -1,5 +1,5 @@
 export interface Product {
-    id: number;
+    _id: number;
     name: string;
     description: string;
     image: string;
@@ -8,5 +8,6 @@ export interface Product {
     tag: string;
     price: number;
     attributes: number | null;
-    product_nodes: number | null
+    product_nodes: number | null,
+    visible: boolean
 }

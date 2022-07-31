@@ -38,6 +38,7 @@ input {
     flex-direction: column;
     justify-content: center;
     gap: var(--mercury-space-1);
+    margin-bottom: var(--mercury-space-2);
 }
 
 @media (min-width: 768px) {

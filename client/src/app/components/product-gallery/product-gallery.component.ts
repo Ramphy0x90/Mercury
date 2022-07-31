@@ -17,12 +17,9 @@ export class ProductGalleryComponent implements OnInit {
   ngOnInit(): void {
     this.productGallery = document.querySelector('.product-gallery-container');
     this.scrollIndex = this.productGallery?.scrollLeft;
-
-    console.log(this.onOverflow());
   }
 
   onOverflow() {
-    console.log(this.productGallery);
   }
 
   scrollLeft() {
