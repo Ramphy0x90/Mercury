@@ -1,0 +1,120 @@
+<form class="main-form">
+    <div class="left-column column">
+        <mat-form-field color="accent" appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre producto">
+        </mat-form-field>
+    
+        <div class="dcp-container">
+            <mat-form-field color="accent" appearance="fill" class="description">
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput placeholder="Descripcion del producto" rows="5" cols="1"></textarea>
+            </mat-form-field>
+    
+            <div class="group">
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Categorias</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let category of categories" [value]="category._id">
+                          {{category.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Precio</mat-label>
+                    <input type="number" matInput min="0">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="optional-params-container">
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Atributos</mat-label>
+                <mat-select [(value)]="hasAttributes">
+                    <mat-option [value]="true">Si</mat-option>
+                    <mat-option [value]="false">No</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Sub productos</mat-label>
+                <mat-select [(value)]="hasSubProducts">
+                    <mat-option [value]="true">Si</mat-option>
+                    <mat-option [value]="false">No</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="attributes-container optional-container" *ngIf="hasAttributes">
+        <p class="title">Atributos</p>
+        <div class="group">
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Color</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Material</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Peso</mat-label>
+                <input type="number" matInput min="0">
+            </mat-form-field>
+        </div>
+
+        <div class="group">
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Anchura</mat-label>
+                <input type="number" matInput min="0">
+            </mat-form-field>
+
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Altura</mat-label>
+                <input type="number" matInput min="0">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="sub-products-container optional-container" *ngIf="hasSubProducts">
+        <p class="title">Sub productos</p>
+        <div class="product-selection">
+            <div class="inputs">
+                <form #subProduct = "ngForm" (ngSubmit) = "addSubProduct(subProduct)">
+                    <mat-form-field color="accent" appearance="fill" required>
+                        <mat-label>Productos</mat-label>
+                        <mat-select name="selection" ngModel>
+                            <mat-option *ngFor="let product of products" [value]="{id: product._id, name: product.name}">
+                              {{product.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+        
+                    <mat-form-field color="accent" appearance="fill">
+                        <mat-label>Cantidad</mat-label>
+                        <input type="number" matInput min="1" value="1" name="quantity" ngModel>
+                    </mat-form-field>
+    
+                    <button mat-raised-button color="accent">Agregar</button>
+                </form>
+            </div>
+
+            <div class="products-list">
+                <div class="product" *ngFor="let subProduct of productsToAppend">
+                    <div class="data">
+                        {{subProduct.name}}
+                        ({{subProduct.quantity}})
+                    </div>
+                    <mat-icon (click)="removeSubProduct(subProduct.fk_product)">delete</mat-icon>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <div class="right-column column">
+
+    </div>
+</form>

@@ -1,0 +1,84 @@
+.main-form {
+    height: calc(100vh - (64px * 2) - var(--mercury-space-2) * 4);
+    overflow-y: scroll;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.dcp-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--mercury-space-1);
+}
+
+.dcp-container .description {
+    flex: 50%;
+}
+
+.dcp-container .group{
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.optional-params-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--mercury-space-1);
+}
+
+.optional-params-container mat-form-field{
+    flex: 50%;
+}
+
+.optional-container {
+    padding: var(--mercury-space-1);
+}
+
+.optional-container .title {
+    color: var(--mercury-blue);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.attributes-container .group {
+    display: flex;
+    flex-direction: row;
+    gap: var(--mercury-space-1);
+    padding: 0 var(--mercury-space-1);
+    border-left: 2px solid var(--mercury-blue);
+}
+
+.product-selection {
+    display: flex;
+    flex-direction: row;
+    gap: var(--mercury-space-1);
+    padding: 0 var(--mercury-space-1);
+    border-left: 2px solid var(--mercury-blue);
+}
+
+.sub-products-container .inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-products-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-products-container .products-list .product {
+    display: flex;
+    flex-direction: row;
+    gap: var(--mercury-space-3);
+    border-bottom: 2px solid var(--mercury-blue);
+    margin-bottom: var(--mercury-space-1);
+}
+
+.products-list .product mat-icon {
+    color: var(--mercury-red);
+    cursor: pointer;
+}

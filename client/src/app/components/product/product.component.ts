@@ -7,11 +7,15 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input() product!: Product;
+  @Input() props!: {product: Product, onAdmin: boolean};
+  product!: Product;
+  onAdmin!: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.product = this.props.product;
+    this.onAdmin = this.props.onAdmin;
   }
 
 }
