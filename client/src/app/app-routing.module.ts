@@ -5,7 +5,7 @@ import { AdminComponent } from './containers/admin/admin.component';
 import { HomeComponent } from './containers/home/home.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
 import { ProductPageComponent } from './containers/product-page/product-page.component';
-import { ProductsAdminComponent } from './containers/products-admin/products-admin.component';
+import { ProductsAdminComponent } from './containers/admin/products-admin/products-admin.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },

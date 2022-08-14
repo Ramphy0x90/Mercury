@@ -22,7 +22,7 @@ import { CategoryCardComponent } from './components/category-card/category-card.
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
 import { ProductPageComponent } from './containers/product-page/product-page.component';
 import { AdminComponent } from './containers/admin/admin.component';
-import { ProductsAdminComponent } from './containers/products-admin/products-admin.component';
+import { ProductsAdminComponent } from './containers/admin/products-admin/products-admin.component';
 import { AdminToolBarComponent } from './components/admin-tool-bar/admin-tool-bar.component';
 import { AddProductFormComponent } from './containers/add-product-form/add-product-form.component';
 import { FormsModule } from '@angular/forms';
