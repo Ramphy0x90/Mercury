@@ -1,20 +1,20 @@
-<form class="main-form">
+<form id="addProduct" class="main-form" [formGroup]="addProductForm" (ngSubmit)="addProduct()">
     <div class="left-column column">
         <mat-form-field color="accent" appearance="fill">
             <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Nombre producto">
+            <input matInput placeholder="Nombre producto" formControlName="name">
         </mat-form-field>
     
         <div class="dcp-container">
             <mat-form-field color="accent" appearance="fill" class="description">
                 <mat-label>Descripcion</mat-label>
-                <textarea matInput placeholder="Descripcion del producto" rows="5" cols="1"></textarea>
+                <textarea matInput placeholder="Descripcion del producto" rows="5" cols="1" formControlName="description"></textarea>
             </mat-form-field>
     
             <div class="group">
                 <mat-form-field color="accent" appearance="fill">
                     <mat-label>Categorias</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="category">
                         <mat-option *ngFor="let category of categories" [value]="category._id">
                           {{category.name}}
                         </mat-option>
@@ -23,7 +23,7 @@
 
                 <mat-form-field color="accent" appearance="fill">
                     <mat-label>Precio</mat-label>
-                    <input type="number" matInput min="0">
+                    <input type="number" matInput min="0" formControlName="price">
                 </mat-form-field>
             </div>
         </div>
@@ -52,27 +52,27 @@
         <div class="group">
             <mat-form-field color="accent" appearance="fill">
                 <mat-label>Color</mat-label>
-                <input matInput>
+                <input matInput formControlName="color">
             </mat-form-field>
 
             <mat-form-field color="accent" appearance="fill">
                 <mat-label>Material</mat-label>
-                <input matInput>
+                <input matInput formControlName="material">
             </mat-form-field>
 
             <mat-form-field color="accent" appearance="fill">
                 <mat-label>Peso</mat-label>
-                <input type="number" matInput min="0">
+                <input type="number" matInput min="0" formControlName="weight">
             </mat-form-field>
         </div>
 
         <div class="group">
             <mat-form-field color="accent" appearance="fill">
                 <mat-label>Anchura</mat-label>
-                <input type="number" matInput min="0">
+                <input type="number" matInput min="0" formControlName="width">
             </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill">
+            <mat-form-field color="accent" appearance="fill" formControlName="height">
                 <mat-label>Altura</mat-label>
                 <input type="number" matInput min="0">
             </mat-form-field>

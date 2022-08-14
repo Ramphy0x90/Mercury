@@ -3,6 +3,7 @@ import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
 import { SubProduct } from 'src/app/models/sub-product';
 import { ProductService } from 'src/app/services/product.service';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product-form',
@@ -16,6 +17,10 @@ export class AddProductFormComponent implements OnInit {
   products!: Product[];
   productsToAppend: SubProduct[] = [];
 
+  formSubmitted: boolean = false;
+  formChecked: boolean = false;
+  addProductForm!: UntypedFormGroup;
+
   categories: Category[] = [
     {_id: 1, name: 'Leds', description: '', image: ''},
     {_id: 2, name: 'Casa', description: '', image: ''},
@@ -23,7 +28,7 @@ export class AddProductFormComponent implements OnInit {
     {_id: 4, name: 'Energia', description: '', image: ''}
   ];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe({
@@ -34,6 +39,60 @@ export class AddProductFormComponent implements OnInit {
         console.log(err);
       }
     });
+
+    this.productService.onSaveProduct.subscribe(() => {
+      this.addProduct();
+    });
+
+    this.form();
+  }
+
+  form() {
+    this.addProductForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      category: [''],
+      price: [0],
+      color: [''],
+      material: [''],
+      weight: [0],
+      width: [0],
+      height: [0]
+    });
+  }
+
+  get getForm() {
+    return this.addProductForm.controls;
+  }
+
+  addProduct() {
+    let formValues = this.addProductForm.value;
+    this.formSubmitted = true;
+
+    let product: Product = {
+      _id: null,
+      name: formValues.name,
+      description: formValues.description,
+      image: '',
+      category: formValues.category,
+      rating: 0,
+      tag: '',
+      price: formValues.price,
+      attributes: null,
+      product_nodes: null,
+      visible: true
+    };
+
+    this.productService.insertProduct(product);
+
+    if(this.addProductForm.valid) {
+      this.formSubmitted = false;
+      this.formChecked = true;
+
+      //this.addProductForm.reset();
+    } else {
+      this.formChecked = false;
+    }
   }
 
   addSubProduct(subProductForm: any) {

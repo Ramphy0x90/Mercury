@@ -19,6 +19,13 @@ router.get('/:id', async (req, res, next) => {
     next();
 });
 
+router.post('/insert', async (req, res, next) => {
+    let product = await controller.insert(req.body);
+    
+    res.status(200).json(product);
+    next();
+});
+
 router.get('/insert/test', async (req, res, next) => {
     await controller.testData();
     res.status(200).send('ok');

@@ -13,6 +13,11 @@ class Product {
         return products;
     }
 
+    static async insert(product) {
+        delete product['_id'];
+        await model.create(product);
+    }
+
     static async testData() {
         await model.create({
             name: 'Luz led TEST 0',

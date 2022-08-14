@@ -26,6 +26,7 @@ import { ProductsAdminComponent } from './containers/admin/products-admin/produc
 import { AdminToolBarComponent } from './components/admin-tool-bar/admin-tool-bar.component';
 import { AddProductFormComponent } from './containers/add-product-form/add-product-form.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     ToastrModule,
     BarRatingModule,
     FlexLayoutModule,
