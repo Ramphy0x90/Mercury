@@ -1,0 +1,49 @@
+.main-admin-container {
+    max-width: 100%;
+    height: calc(100vh - 64px - var(--mercury-space-2) * 2);
+    margin-bottom: 0;
+    padding-top: var(--mercury-space-2);
+}
+
+mat-sidenav-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--mercury-space-2);
+    height: 100%;
+    padding-left: var(--mercury-space-1);
+    background-color: var(--mercury-light);
+}
+
+mat-sidenav {
+    width: 250px;
+    padding: var(--mercury-space-1);
+    margin-bottom: var(--mercury-space-2);
+    background-color: var(--mercury-blue);
+}
+
+mat-sidenav button {
+    width: 100%;
+    text-align: left;
+    margin-bottom: var(--mercury-space-1);
+    color: var(--mercury-light);
+    border-color: var(--mercury-light);
+}
+
+mat-sidenav button mat-icon{
+    margin-right: var(--mercury-space-2);
+}
+
+mat-sidenav-content {
+    width: 100%;
+    padding-top: 0;
+    padding-left: var(--mercury-space-1);
+    padding-right: var(--mercury-space-1);
+    padding-bottom: var(--mercury-space-1);
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .main-admin-container {
+        padding-top: 0;
+    }
+}

@@ -1,0 +1,31 @@
+<div class="main-admin-container mercury-container">
+    <mat-sidenav-container>
+        <mat-sidenav class="mat-elevation-z8" mode="side" opened="true" disableClose="true">
+            <button mat-stroked-button class="menu-button">
+                <mat-icon>group</mat-icon>
+                <span>Usuarios</span>
+            </button>
+            <button mat-stroked-button class="menu-button" [routerLink]="['./products']">
+                <mat-icon>store_front</mat-icon>
+                <span>Productos</span>
+            </button>
+            <button mat-stroked-button class="menu-button">
+                <mat-icon>category</mat-icon>
+                <span>Categorias</span>
+            </button>
+            <button mat-stroked-button class="menu-button">
+                <mat-icon>sell</mat-icon>
+                <span>Ofertas</span>
+            </button>
+            <button mat-stroked-button class="menu-button">
+                <mat-icon>query_stats</mat-icon>
+                <span>Estadisticas</span>
+            </button>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <app-admin-tool-bar></app-admin-tool-bar>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

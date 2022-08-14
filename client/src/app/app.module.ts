@@ -21,6 +21,11 @@ import { SectionHeaderComponent } from './components/section-header/section-head
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
 import { ProductPageComponent } from './containers/product-page/product-page.component';
+import { AdminComponent } from './containers/admin/admin.component';
+import { ProductsAdminComponent } from './containers/products-admin/products-admin.component';
+import { AdminToolBarComponent } from './components/admin-tool-bar/admin-tool-bar.component';
+import { AddProductFormComponent } from './containers/add-product-form/add-product-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,13 +39,18 @@ import { ProductPageComponent } from './containers/product-page/product-page.com
     SectionHeaderComponent,
     CategoryCardComponent,
     PageNotFoundComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    AdminComponent,
+    ProductsAdminComponent,
+    AdminToolBarComponent,
+    AddProductFormComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     ToastrModule,
     BarRatingModule,
     FlexLayoutModule,
