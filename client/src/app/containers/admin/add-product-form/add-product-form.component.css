@@ -8,6 +8,32 @@
     flex-direction: column;
 }
 
+.nf-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--mercury-space-1);
+}
+
+.nf-container mat-form-field {
+    flex: 0 1 50%;
+}
+
+.nf-container .image-container {
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--mercury-space);
+    margin-bottom: var(--mercury-space-1);
+    background-color: rgb(236, 236, 236);
+    border-bottom: 1px solid rgb(137, 137, 137);
+}
+
+.nf-container button {
+    color: var(--mercury-blue);
+    border-color: var(--mercury-blue);
+}
+
 .dcp-container {
     display: flex;
     flex-direction: row;

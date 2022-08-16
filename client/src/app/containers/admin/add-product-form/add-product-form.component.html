@@ -1,9 +1,18 @@
-<form id="addProduct" class="main-form" [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+<form id="addProduct" class="main-form" [formGroup]="addProductForm" (ngSubmit)="null">
     <div class="left-column column">
-        <mat-form-field color="accent" appearance="fill">
-            <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Nombre producto" formControlName="name">
-        </mat-form-field>
+        <div class="nf-container">
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre producto" formControlName="name">
+            </mat-form-field>
+
+            <div class="image-container">
+                <input type="file" name="image" ng2FileSelect [uploader]="uploader">
+                <button mat-stroked-button type="button" (click)="upload()">
+                    <mat-icon>cloud_upload</mat-icon>
+                </button>
+            </div>
+        </div>
     
         <div class="dcp-container">
             <mat-form-field color="accent" appearance="fill" class="description">
@@ -72,9 +81,9 @@
                 <input type="number" matInput min="0" formControlName="width">
             </mat-form-field>
 
-            <mat-form-field color="accent" appearance="fill" formControlName="height">
+            <mat-form-field color="accent" appearance="fill">
                 <mat-label>Altura</mat-label>
-                <input type="number" matInput min="0">
+                <input type="number" matInput min="0" formControlName="height">
             </mat-form-field>
         </div>
     </div>

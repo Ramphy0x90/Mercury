@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BarRatingModule } from "ngx-bar-rating";
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
@@ -24,7 +25,7 @@ import { ProductPageComponent } from './containers/product-page/product-page.com
 import { AdminComponent } from './containers/admin/admin.component';
 import { ProductsAdminComponent } from './containers/admin/products-admin/products-admin.component';
 import { AdminToolBarComponent } from './components/admin-tool-bar/admin-tool-bar.component';
-import { AddProductFormComponent } from './containers/add-product-form/add-product-form.component';
+import { AddProductFormComponent } from './containers/admin/add-product-form/add-product-form.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -53,7 +54,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule,
+    FileUploadModule,
+    ToastrModule.forRoot(),
     BarRatingModule,
     FlexLayoutModule,
     MaterialModule

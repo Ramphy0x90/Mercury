@@ -4,6 +4,8 @@ import { Product } from 'src/app/models/product';
 import { SubProduct } from 'src/app/models/sub-product';
 import { ProductService } from 'src/app/services/product.service';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-add-product-form',
@@ -20,6 +22,7 @@ export class AddProductFormComponent implements OnInit {
   formSubmitted: boolean = false;
   formChecked: boolean = false;
   addProductForm!: UntypedFormGroup;
+  uploader!: FileUploader;
 
   categories: Category[] = [
     {_id: 1, name: 'Leds', description: '', image: ''},
@@ -28,7 +31,9 @@ export class AddProductFormComponent implements OnInit {
     {_id: 4, name: 'Energia', description: '', image: ''}
   ];
 
-  constructor(private productService: ProductService, private formBuilder: UntypedFormBuilder) { }
+  constructor(private productService: ProductService, private formBuilder: UntypedFormBuilder, private toastr: ToastrService) {
+    this.uploader = productService.uploader;
+  }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe({
@@ -40,8 +45,8 @@ export class AddProductFormComponent implements OnInit {
       }
     });
 
-    this.productService.onSaveProduct.subscribe(() => {
-      this.addProduct();
+    this.productService.onSaveProduct.subscribe((event) => {
+      this.addProduct(event);
     });
 
     this.form();
@@ -65,8 +70,14 @@ export class AddProductFormComponent implements OnInit {
     return this.addProductForm.controls;
   }
 
-  addProduct() {
+  upload() {
+    this.productService.upload();
+  }
+
+  addProduct(event: any) {
     let formValues = this.addProductForm.value;
+    this.productService.upload();
+
     this.formSubmitted = true;
 
     let product: Product = {
@@ -83,15 +94,13 @@ export class AddProductFormComponent implements OnInit {
       visible: true
     };
 
-    this.productService.insertProduct(product);
-
     if(this.addProductForm.valid) {
-      this.formSubmitted = false;
-      this.formChecked = true;
+      this.productService.insertProduct(product);
 
-      //this.addProductForm.reset();
+      this.addProductForm.reset();
+      this.toastr.success('Producto agregado!');
     } else {
-      this.formChecked = false;
+      this.toastr.error('Revisar los datos introducidos!');
     }
   }
 

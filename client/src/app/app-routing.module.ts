@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddProductFormComponent } from './containers/add-product-form/add-product-form.component';
+import { AddProductFormComponent } from './containers/admin/add-product-form/add-product-form.component';
 import { AdminComponent } from './containers/admin/admin.component';
 import { HomeComponent } from './containers/home/home.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
