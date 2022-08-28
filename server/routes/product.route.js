@@ -19,13 +19,23 @@ let upload = multer({storage: storage});
 
 // Get products
 router.get('/', async (req, res, next) => {
-    let products = await controller.getProducts();
+    // Products filters
+    let allProducts = req.query.all;
+    let visible = req.query.visible;
+
+    let products = [];
+
+    if(allProducts == 'true') {
+        products = await controller.getAllProducts();
+    } else {
+        products = await controller.getProducts();
+    }
 
     res.json(products);
     next();
 });
 
-// Get products by id
+// Get product by id
 router.get('/:id', async (req, res, next) => {
     let productId = req.params.id;
     let product = await controller.getProduct(productId);
@@ -48,9 +58,22 @@ router.post('/insert', async (req, res, next) => {
     next();
 });
 
-router.get('/insert/test', async (req, res, next) => {
-    await controller.testData();
-    res.status(200).send('ok');
+// Update product
+router.post('/update', async (req, res, next) => {
+    let product = await controller.update(req.body);
+    
+    res.status(200).json(product);
+    next();
+});
+
+// Delete product
+router.delete('/delete', async (req, res, next) => {
+    let productId = req.query.id;
+    await controller.delete(productId);
+
+    console.log("TTETTE")
+    
+    res.status(200).send();
     next();
 });
 

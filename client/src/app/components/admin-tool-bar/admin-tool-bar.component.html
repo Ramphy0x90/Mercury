@@ -1,11 +1,21 @@
 <mat-toolbar class="mat-elevation-z8" fxLayout="row" color="accent">
-    <button mat-raised-button (click)="setOnSaveProduct()" *ngIf="this.currentPath == '/admin/add-product'">
-        <mat-icon color="accent">save</mat-icon> Guardar
-    </button>
-    <button mat-raised-button [routerLink]="'products'" *ngIf="this.currentPath == '/admin/add-product'">
-        <mat-icon color="accent">close</mat-icon> Cancelar
-    </button>
-    <button mat-raised-button [routerLink]="'add-product'" *ngIf="this.currentPath == '/admin/products'">
-        <mat-icon color="accent">add</mat-icon> Agregar
-    </button>
+    <div class="left-column column">
+        <button mat-raised-button (click)="setOnSaveProduct()"
+        *ngIf="this.currentPath == '/admin/add-product' || this.currentPath.startsWith('/admin/edit-product')">
+            <mat-icon color="accent">save</mat-icon> Guardar
+        </button>
+        <button mat-raised-button [routerLink]="'products'" (click)="closeProduct()"
+        *ngIf="this.currentPath == '/admin/add-product' || this.currentPath.startsWith('/admin/edit-product')">
+            <mat-icon color="accent">close</mat-icon> Cancelar
+        </button>
+        <button mat-raised-button [routerLink]="'add-product'" *ngIf="this.currentPath == '/admin/products'">
+            <mat-icon color="accent">add</mat-icon> Agregar
+        </button>
+    </div>
+    <div class="right-column column">
+        <button mat-raised-button (click)="setOnDeleteProduct()"
+        *ngIf="this.currentPath.startsWith('/admin/edit-product')">
+            <mat-icon color="warn">save</mat-icon> Eliminar
+        </button>
+    </div>
 </mat-toolbar>

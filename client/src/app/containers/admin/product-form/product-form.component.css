@@ -14,8 +14,15 @@
     gap: var(--mercury-space-1);
 }
 
-.nf-container mat-form-field {
-    flex: 0 1 50%;
+.nf-container .group {
+    flex: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: var(--mercury-space-1);
+}
+
+.nf-container .group mat-form-field{
+    flex: 50%;
 }
 
 .nf-container .image-container {

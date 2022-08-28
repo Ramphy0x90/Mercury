@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../models/product';
@@ -12,11 +12,12 @@ import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 export class ProductService {
   public uploader!: FileUploader;
   onSaveProduct: EventEmitter<boolean> = new EventEmitter();
+  onDeleteProduct: EventEmitter<boolean> = new EventEmitter();
   apiURL: string = environment.apiURL;
   serverURL: string = environment.serverURL;
   uploadedImage: any;
 
-  constructor(private router: Router, private http: HttpClient, private toastr: ToastrService) {
+  constructor(private http: HttpClient, private toastr: ToastrService) {
     this.uploader = new FileUploader({
       itemAlias: 'file'
     });
@@ -33,8 +34,12 @@ export class ProductService {
     return this.http.get<Product>(`${this.apiURL}/products/${id}`);
   }
 
-  getProducts() {
-    return this.http.get<Product[]>(`${this.apiURL}/products/`);
+  getProducts(all: boolean = false, visible: string = 'yes') {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('all', all)
+                             .append('visible', visible);
+
+    return this.http.get<Product[]>(`${this.apiURL}/products/`, {params: queryParams});
   }
 
   onSuccessItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) {
@@ -56,9 +61,27 @@ export class ProductService {
     product.image = this.uploadedImage;
 
     this.http.post<Product>(`${this.apiURL}/products/insert/`, product).subscribe({
-      next: (response) => {
-        console.log(response);
-      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
+  updateProduct(product: Product) {
+    product.image = this.uploadedImage;
+
+    this.http.post<Product>(`${this.apiURL}/products/update/`, product).subscribe({
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
+  deleteProduct(id: number) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('id', id);
+
+    this.http.delete<Product>(`${this.apiURL}/products/delete`, {params: queryParams}).subscribe({
       error: (error) => {
         console.log(error);
       }

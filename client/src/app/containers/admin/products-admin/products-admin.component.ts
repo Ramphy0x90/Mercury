@@ -13,7 +13,7 @@ export class ProductsAdminComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe({
+    this.productService.getProducts(true).subscribe({
       next: (data) => {
         this.products = data;
       }

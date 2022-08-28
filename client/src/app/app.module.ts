@@ -25,7 +25,7 @@ import { ProductPageComponent } from './containers/product-page/product-page.com
 import { AdminComponent } from './containers/admin/admin.component';
 import { ProductsAdminComponent } from './containers/admin/products-admin/products-admin.component';
 import { AdminToolBarComponent } from './components/admin-tool-bar/admin-tool-bar.component';
-import { AddProductFormComponent } from './containers/admin/add-product-form/add-product-form.component';
+import { ProductFormComponent } from './containers/admin/product-form/product-form.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -45,7 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminComponent,
     ProductsAdminComponent,
     AdminToolBarComponent,
-    AddProductFormComponent
+    ProductFormComponent,
   ],
   imports: [
     HttpClientModule,

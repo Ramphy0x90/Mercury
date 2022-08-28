@@ -25,6 +25,7 @@ yarn-error.log
 # Visual Studio Code
 /client/.vscode
 /server/.vscode
+/server/public/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

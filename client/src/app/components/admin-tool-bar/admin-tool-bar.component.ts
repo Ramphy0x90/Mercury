@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AdminToolBarComponent implements OnInit {
   pathRoute: string[] = [];
-  currentPath!: string | undefined;
+  currentPath!: string;
 
   constructor(private router: Router, private productService: ProductService) {
     router.events.subscribe(() => {
@@ -22,5 +22,14 @@ export class AdminToolBarComponent implements OnInit {
 
   setOnSaveProduct() {
     this.productService.onSaveProduct.emit(true);
+  }
+
+  setOnDeleteProduct() {
+    this.productService.onDeleteProduct.emit(true);
+  }
+
+  closeProduct() {
+    this.productService.onSaveProduct.emit(false);
+    this.productService.onDeleteProduct.emit(false);
   }
 }

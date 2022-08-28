@@ -1,10 +1,20 @@
 <form id="addProduct" class="main-form" [formGroup]="addProductForm" (ngSubmit)="null">
     <div class="left-column column">
         <div class="nf-container">
-            <mat-form-field color="accent" appearance="fill">
-                <mat-label>Nombre</mat-label>
-                <input matInput placeholder="Nombre producto" formControlName="name">
-            </mat-form-field>
+            <div class="group">
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Nombre producto" formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Visible</mat-label>
+                    <mat-select formControlName="visible">
+                        <mat-option [value]="true">Si</mat-option>
+                        <mat-option [value]="false">No</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
 
             <div class="image-container">
                 <input type="file" name="image" ng2FileSelect [uploader]="uploader">
@@ -40,7 +50,7 @@
         <div class="optional-params-container">
             <mat-form-field color="accent" appearance="fill">
                 <mat-label>Atributos</mat-label>
-                <mat-select [(value)]="hasAttributes">
+                <mat-select [(value)]="(product.attributes) ? product.attributes : hasAttributes">
                     <mat-option [value]="true">Si</mat-option>
                     <mat-option [value]="false">No</mat-option>
                 </mat-select>
@@ -48,7 +58,7 @@
 
             <mat-form-field color="accent" appearance="fill">
                 <mat-label>Sub productos</mat-label>
-                <mat-select [(value)]="hasSubProducts">
+                <mat-select [(value)]="(product.product_nodes) ? product.product_nodes : hasSubProducts">
                     <mat-option [value]="true">Si</mat-option>
                     <mat-option [value]="false">No</mat-option>
                 </mat-select>

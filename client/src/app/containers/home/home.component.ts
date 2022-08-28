@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe({
+    this.productService.getProducts(false).subscribe({
       next: (data) => {
         this.bestSellersProducts = data;
       },

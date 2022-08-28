@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddProductFormComponent } from './containers/admin/add-product-form/add-product-form.component';
+import { ProductFormComponent } from './containers/admin/product-form/product-form.component';
 import { AdminComponent } from './containers/admin/admin.component';
 import { HomeComponent } from './containers/home/home.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'admin', component: AdminComponent, children: [
     { path: 'products', component: ProductsAdminComponent },
-    { path: 'add-product', component: AddProductFormComponent }
+    { path: 'add-product', component: ProductFormComponent },
+    { path: 'edit-product/:id', component: ProductFormComponent }
   ] },
   { path: 'product/:id', component: ProductPageComponent },
   { path: '**', component: PageNotFoundComponent }
