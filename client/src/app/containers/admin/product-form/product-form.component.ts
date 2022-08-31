@@ -7,6 +7,7 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { ToastrService } from 'ngx-toastr';
 import { FileUploader } from 'ng2-file-upload';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Attribute } from 'src/app/models/attribute';
 
 @Component({
   selector: 'app-add-product-form',
@@ -36,6 +37,14 @@ export class ProductFormComponent implements OnInit {
     attributes: null,
     product_nodes: null,
     visible: false
+  };
+  attribute: Attribute = {
+    _id: null,
+    color: '',
+    material: '',
+    weight: 0,
+    width: 0,
+    height: 0
   };
 
   products!: Product[];
@@ -85,7 +94,7 @@ export class ProductFormComponent implements OnInit {
 
     // Set trigger when form is saved
     this.onSaveSubscription = this.productService.onSaveProduct.subscribe((event) => {
-      if(event) this.saveProduct(event);
+      if(event) this.saveProduct();
     });
 
     this.onDeleteSubscription = this.productService.onDeleteProduct.subscribe((event) => {
@@ -116,21 +125,41 @@ export class ProductFormComponent implements OnInit {
 
     // If form in edit mode, get product info to edit
     if(this.formMode == 'edit') {
-      this.productService.getProduct((this.productId)).subscribe({
+      this.productService.getProduct(this.productId).subscribe({
         next: (data) => {
+          if(data.attributes) {
+            this.productService.getAttribute(data.attributes).subscribe((attribute) => {
+              this.addProductForm = this.formBuilder.group({
+                name: [data.name, [Validators.required]],
+                visible: [data.visible],
+                description: [data.description, [Validators.required]],
+                category: [data.category],
+                price: [data.price],
+                color: [attribute.color],
+                material: [attribute.material],
+                weight: [attribute.weight],
+                width: [attribute.width],
+                height: [attribute.height]
+              });
 
-          this.addProductForm = this.formBuilder.group({
-            name: [data.name, [Validators.required]],
-            visible: [data.visible],
-            description: [data.description, [Validators.required]],
-            category: [data.category],
-            price: [data.price],
-            color: [''],
-            material: [''],
-            weight: [0],
-            width: [0],
-            height: [0]
-          });
+              if(data.attributes != null) this.hasAttributes = true;
+              this.attribute = attribute;
+            });
+          } else {
+            this.addProductForm = this.formBuilder.group({
+              name: [data.name, [Validators.required]],
+              visible: [data.visible],
+              description: [data.description, [Validators.required]],
+              category: [data.category],
+              price: [data.price],
+              color: [''],
+              material: [''],
+              weight: [0],
+              width: [0],
+              height: [0]
+            });
+          }
+        
           this.product = data;
         },
         error: (err) => {
@@ -148,7 +177,7 @@ export class ProductFormComponent implements OnInit {
     this.productService.upload();
   }
 
-  saveProduct(event: any) {
+  saveProduct() {
     let formValues = this.addProductForm.value;
     this.productService.upload();
 
@@ -161,16 +190,40 @@ export class ProductFormComponent implements OnInit {
       rating: 0,
       tag: '',
       price: formValues.price,
-      attributes: null,
+      attributes: this.product.attributes,
       product_nodes: null,
       visible: formValues.visible
+    };
+
+    this.attribute = {
+      _id: this.attribute._id,
+      color: formValues.color,
+      material: formValues.material,
+      weight: formValues.weight,
+      width: formValues.width,
+      height: formValues.height
     };
 
     this.formSubmitted = true;
 
     if(this.addProductForm.valid) {
       if(this.formMode == 'new') {
-        this.productService.insertProduct(this.product);
+        if(this.hasAttributes) {
+          this.productService.insertAttribute(this.attribute).subscribe({
+            next: (data) => {
+              this.product.attributes = data._id;
+              this.productService.insertProduct(this.product);
+            },
+            error: () => {
+              this.toastr.error('Error con los atributos!', '', {
+                timeOut: 2000,
+                progressBar: true
+              });
+            }
+          });
+        } else {
+          this.productService.insertProduct(this.product);
+        }
 
         this.addProductForm.reset();
 
@@ -179,7 +232,29 @@ export class ProductFormComponent implements OnInit {
           progressBar: true
         });
       } else if(this.formMode == 'edit') {
-        this.productService.updateProduct(this.product);
+        if(!this.product.attributes) {
+          this.productService.insertAttribute(this.attribute).subscribe({
+            next: (data) => {
+              this.product.attributes = data._id;
+              this.productService.updateProduct(this.product);
+            },
+            error: () => {
+              this.toastr.error('Error con los atributos!', '', {
+                timeOut: 2000,
+                progressBar: true
+              });
+            }
+          });
+        } else {
+          if(this.hasAttributes) {
+            this.productService.updateAttribute(this.attribute);
+          } else {
+            this.productService.deleteAttribute(this.product.attributes);
+            this.product.attributes = null;
+          }
+
+          this.productService.updateProduct(this.product);
+        }
 
         this.toastr.success('Producto actualizado!', '', {
           timeOut: 2000,

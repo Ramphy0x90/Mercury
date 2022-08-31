@@ -50,7 +50,7 @@
         <div class="optional-params-container">
             <mat-form-field color="accent" appearance="fill">
                 <mat-label>Atributos</mat-label>
-                <mat-select [(value)]="(product.attributes) ? product.attributes : hasAttributes">
+                <mat-select [(value)]="hasAttributes">
                     <mat-option [value]="true">Si</mat-option>
                     <mat-option [value]="false">No</mat-option>
                 </mat-select>

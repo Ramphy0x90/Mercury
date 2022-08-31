@@ -71,8 +71,40 @@ router.delete('/delete', async (req, res, next) => {
     let productId = req.query.id;
     await controller.delete(productId);
 
-    console.log("TTETTE")
+    res.status(200).send();
+    next();
+});
+
+// Get attribute by id
+router.get('/attribute/:id', async (req, res, next) => {
+    let attributeId = req.params.id;
+    let attribute = await controller.getAttribute(attributeId);
+
+    res.json(attribute);
+    next();
+});
+
+// Insert attribute
+router.post('/insert/attribute', async (req, res, next) => {
+    let attribute = await controller.insertAttribute(req.body);
     
+    res.status(200).json(attribute);
+    next();
+});
+
+// Update attribute
+router.post('/update/attribute', async (req, res, next) => {
+    let attribute = await controller.updateAttribute(req.body);
+    
+    res.status(200).json(attribute);
+    next();
+});
+
+// Delete attribute
+router.delete('/delete/attribute', async (req, res, next) => {
+    let attributeId = req.query.id;
+    await controller.deleteAttribute(attributeId);
+
     res.status(200).send();
     next();
 });

@@ -1,10 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Product } from '../models/product';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
+import { Attribute } from '../models/attribute';
 
 @Injectable({
   providedIn: 'root'
@@ -82,6 +82,33 @@ export class ProductService {
     queryParams = queryParams.append('id', id);
 
     this.http.delete<Product>(`${this.apiURL}/products/delete`, {params: queryParams}).subscribe({
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
+  getAttribute(id: number) {
+    return this.http.get<Attribute>(`${this.apiURL}/products/attribute/${id}`);
+  }
+
+  insertAttribute(attribute: Attribute) {
+    return this.http.post<Attribute>(`${this.apiURL}/products/insert/attribute`, attribute);
+  }
+
+  updateAttribute(attribute: Attribute) {
+    this.http.post<Attribute>(`${this.apiURL}/products/update/attribute`, attribute).subscribe({
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
+  deleteAttribute(id: number) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('id', id);
+
+    this.http.delete<Attribute>(`${this.apiURL}/products/delete/attribute`, {params: queryParams}).subscribe({
       error: (error) => {
         console.log(error);
       }
