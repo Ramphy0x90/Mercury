@@ -1,5 +1,6 @@
 const model = require('../models/product.model');
 const modelAttribute = require('../models/attribute.model');
+const modelSubProduct = require('../models/subProduct.model');
 
 class Product {
     static async getProduct(id) {
@@ -56,6 +57,21 @@ class Product {
 
     static async deleteAttribute(id) {
         await modelAttribute.findByIdAndDelete({_id: id});
+    }
+
+    static async getSubProducts(id) {
+        let subProducts = await modelSubProduct.find({fk_parent: id});
+
+        return subProducts;
+    }
+
+    static async insertSubProduct(subProduct) {
+        delete subProduct['_id'];
+        return await modelSubProduct.create(subProduct);
+    }
+
+    static async deleteSubProduct(id) {
+        await modelSubProduct.findByIdAndDelete({_id: id});
     }
 }
 

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Attribute } from '../models/attribute';
+import { SubProduct } from '../models/sub-product';
 
 @Injectable({
   providedIn: 'root'
@@ -115,7 +116,22 @@ export class ProductService {
     });
   }
 
-  insertSubProduct() {
+  getSubProducts(id: number | null) {
+    return this.http.get<SubProduct[]>(`${this.apiURL}/products/sub-products/${id}`);
+  }
 
+  insertSubProduct(subProduct: SubProduct) {
+    return this.http.post<SubProduct>(`${this.apiURL}/products/insert/sub-product`, subProduct);
+  }
+
+  deleteSubProduct(id: number) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('id', id);
+
+    this.http.delete<SubProduct>(`${this.apiURL}/products/delete/sub-product`, {params: queryParams}).subscribe({
+      error: (error) => {
+        console.log(error);
+      }
+    });
   }
 }

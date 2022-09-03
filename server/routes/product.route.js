@@ -109,4 +109,30 @@ router.delete('/delete/attribute', async (req, res, next) => {
     next();
 });
 
+// Get sub products by product id
+router.get('/sub-products/:id', async (req, res, next) => {
+    let productId = req.params.id;
+    let subProducts = await controller.getSubProducts(productId);
+
+    res.status(200).json(subProducts);
+    next();
+});
+
+// Insert sub product
+router.post('/insert/sub-product', async (req, res, next) => {
+    let subProduct = await controller.insertSubProduct(req.body);
+    
+    res.status(200).json(subProduct);
+    next();
+});
+
+// Delete sub product
+router.delete('/delete/sub-product', async (req, res, next) => {
+    let subProductId = req.query.id;
+    await controller.deleteSubProduct(subProductId);
+
+    res.status(200).send();
+    next();
+});
+
 module.exports = router;

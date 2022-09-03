@@ -8,6 +8,6 @@ export interface Product {
     tag: string;
     price: number;
     attributes: number | null;
-    product_nodes: number | null,
+    product_nodes: boolean,
     visible: boolean
 }

@@ -58,7 +58,7 @@
 
             <mat-form-field color="accent" appearance="fill">
                 <mat-label>Sub productos</mat-label>
-                <mat-select [(value)]="(product.product_nodes) ? product.product_nodes : hasSubProducts">
+                <mat-select [(value)]="hasSubProducts">
                     <mat-option [value]="true">Si</mat-option>
                     <mat-option [value]="false">No</mat-option>
                 </mat-select>
@@ -122,7 +122,7 @@
             </div>
 
             <div class="products-list">
-                <div class="product" *ngFor="let subProduct of productsToAppend">
+                <div class="product" *ngFor="let subProduct of subProducts">
                     <div class="data">
                         {{subProduct.name}}
                         ({{subProduct.quantity}})

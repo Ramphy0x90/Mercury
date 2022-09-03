@@ -10,7 +10,7 @@ const product = new Schema({
     tag: { type: String },
     price: { type: Number, required: true },
     attributes: { type: Schema.Types.Mixed },
-    product_nodes: { type: Schema.Types.Mixed },
+    product_nodes: { type: Boolean },
     visible: { type: Boolean, required: true }
 });
 
