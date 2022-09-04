@@ -1,2 +1,4 @@
 <app-nav-bar></app-nav-bar>
-<router-outlet></router-outlet>
+<div  [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>
