@@ -1,0 +1,13 @@
+.products-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--mercury-space-2);
+    padding: var(--mercury-space-2);
+}
+
+@media (min-width: 768px) {
+    .products-container {
+        padding: 0;
+    }
+}

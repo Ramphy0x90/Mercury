@@ -18,7 +18,7 @@ export class NavBarComponent implements OnInit {
     {
       label: 'Productos',
       icon: '',
-      action: '',
+      action: '/products',
       nodes: []
     },
     {

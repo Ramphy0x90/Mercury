@@ -1,0 +1,5 @@
+<div class="main-products-container mercury-container">
+    <div class="products-container section">
+        <app-product *ngFor="let product of products" [props]="{product: product, onAdmin: true}"></app-product>
+    </div>
+</div>

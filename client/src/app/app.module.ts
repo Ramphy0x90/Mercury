@@ -28,6 +28,7 @@ import { AdminToolBarComponent } from './components/admin-tool-bar/admin-tool-ba
 import { ProductFormComponent } from './containers/admin/product-form/product-form.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductsPageComponent } from './containers/products-page/products-page.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductsAdminComponent,
     AdminToolBarComponent,
     ProductFormComponent,
+    ProductsPageComponent,
   ],
   imports: [
     HttpClientModule,

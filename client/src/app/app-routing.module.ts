@@ -6,6 +6,7 @@ import { HomeComponent } from './containers/home/home.component';
 import { PageNotFoundComponent } from './containers/page-not-found/page-not-found.component';
 import { ProductPageComponent } from './containers/product-page/product-page.component';
 import { ProductsAdminComponent } from './containers/admin/products-admin/products-admin.component';
+import { ProductsPageComponent } from './containers/products-page/products-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'edit-product/:id', component: ProductFormComponent }
   ] },
   { path: 'product/:id', component: ProductPageComponent },
+  { path: 'products', component: ProductsPageComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
