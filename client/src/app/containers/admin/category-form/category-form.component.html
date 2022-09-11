@@ -1,0 +1,24 @@
+<form id="addProduct" class="main-form" [formGroup]="addCategoryForm" (ngSubmit)="null">
+    <div class="left-column column">
+        <div class="nf-container">
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre producto" formControlName="name">
+            </mat-form-field>
+
+            <div class="image-container">
+                <input type="file" name="image" ng2FileSelect [uploader]="uploader">
+                <button mat-stroked-button type="button" (click)="upload()">
+                    <mat-icon>cloud_upload</mat-icon>
+                </button>
+            </div>
+        </div>
+    
+        <div class="dcp-container">
+            <mat-form-field color="accent" appearance="fill" class="description">
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput placeholder="Descripcion del producto" rows="5" cols="1" formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+</form>

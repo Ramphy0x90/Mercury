@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const database = require('./database');
 const productRoutes = require('./routes/product.route');
+const categoryRoutes = require('./routes/category.route');
 
 require('dotenv').config();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/public', express.static('public'));
 app.use('/api/products', productRoutes);
+app.use('/api/categories', categoryRoutes);
 
 database.init();
 app.listen(port, () => {
