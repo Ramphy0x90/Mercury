@@ -1,6 +1,10 @@
 <div class="main-admin-container mercury-container">
     <mat-sidenav-container>
         <mat-sidenav class="mat-elevation-z8" mode="side" opened="true" disableClose="true">
+            <button mat-stroked-button class="menu-button" [routerLink]="['./']">
+                <mat-icon>dashboard</mat-icon>
+                <span>Dashboard</span>
+            </button>
             <button mat-stroked-button class="menu-button">
                 <mat-icon>group</mat-icon>
                 <span>Usuarios</span>
@@ -9,7 +13,7 @@
                 <mat-icon>store_front</mat-icon>
                 <span>Productos</span>
             </button>
-            <button mat-stroked-button class="menu-button">
+            <button mat-stroked-button class="menu-button" [routerLink]="['./categories']">
                 <mat-icon>category</mat-icon>
                 <span>Categorias</span>
             </button>
