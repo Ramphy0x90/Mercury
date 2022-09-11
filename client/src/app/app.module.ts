@@ -29,6 +29,9 @@ import { ProductFormComponent } from './containers/admin/product-form/product-fo
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsPageComponent } from './containers/products-page/products-page.component';
+import { DashboardComponent } from './containers/admin/dashboard/dashboard.component';
+import { CategoryFormComponent } from './containers/admin/category-form/category-form.component';
+import { CategoriesAdminComponent } from './containers/admin/categories-admin/categories-admin.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { ProductsPageComponent } from './containers/products-page/products-page.
     AdminToolBarComponent,
     ProductFormComponent,
     ProductsPageComponent,
+    DashboardComponent,
+    CategoryFormComponent,
+    CategoriesAdminComponent,
   ],
   imports: [
     HttpClientModule,
