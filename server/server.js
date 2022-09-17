@@ -9,7 +9,7 @@ const categoryRoutes = require('./routes/category.route');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3435;
+const port = process.env.PORT || 3436;
 
 app.use(cors());
 app.use(bodyParser.json());
