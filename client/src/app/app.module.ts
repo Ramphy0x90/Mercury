@@ -32,6 +32,7 @@ import { ProductsPageComponent } from './containers/products-page/products-page.
 import { DashboardComponent } from './containers/admin/dashboard/dashboard.component';
 import { CategoryFormComponent } from './containers/admin/category-form/category-form.component';
 import { CategoriesAdminComponent } from './containers/admin/categories-admin/categories-admin.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,9 @@ import { CategoriesAdminComponent } from './containers/admin/categories-admin/ca
     FlexLayoutModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
