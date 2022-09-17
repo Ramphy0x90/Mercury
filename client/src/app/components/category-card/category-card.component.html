@@ -1,4 +1,4 @@
-<div class="main-category-card-container">
+<div class="main-category-card-container" [routerLink]="[!onAdmin ? '/products' : '/admin/edit-category', category._id]">
     <img [src]="category.image" [alt]="category.name">
     <div class="info-container">
         <p class="title">{{category.name}}</p>

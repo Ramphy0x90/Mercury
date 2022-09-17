@@ -1,1 +1,3 @@
-<p>categories-admin works!</p>
+<div class="main-categories-admin-container mercury-container">
+    <app-category-card *ngFor="let category of categories" [props]="{category: category, onAdmin: true}"></app-category-card>
+</div>

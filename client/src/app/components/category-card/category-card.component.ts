@@ -7,11 +7,15 @@ import { Category } from 'src/app/models/category';
   styleUrls: ['./category-card.component.css']
 })
 export class CategoryCardComponent implements OnInit {
-  @Input() category!: Category;
+  @Input() props!: {category: Category, onAdmin: boolean};
+  category!: Category;
+  onAdmin!: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.category = this.props.category;
+    this.onAdmin = this.props.onAdmin;
   }
 
 }

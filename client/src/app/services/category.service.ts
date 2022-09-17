@@ -45,7 +45,10 @@ export class CategoryService {
     let data = JSON.parse(response);
     this.uploadedImage = `${this.serverURL}/${data.path}`;
 
-    this.toastr.success('Imagen cargada!');
+    this.toastr.success('Image uploaded', '', {
+      timeOut: 2000,
+      progressBar: true
+    });
   }
 
   upload() {
