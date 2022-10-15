@@ -2,17 +2,19 @@
     <app-gallery></app-gallery>
 
     <div class="primary-section section">
-        <div class="left-column">
+        <div class="left-column column">
             <app-section-header [text]="'Categoria productos'"></app-section-header>
             <app-product-categories-view [categories]="productCategories"></app-product-categories-view>
         </div>
-        <div class="right-column">
+        <div class="right-column column">
             <app-section-header [text]="'Lo mas vendido'"></app-section-header>
             <app-product-gallery [products]="bestSellersProducts"></app-product-gallery>
         </div>
     </div>
     <div class="secondary-section section">
-        <app-section-header [text]="'Luces led'"></app-section-header>
-        <app-product-gallery [products]="bestSellersProducts"></app-product-gallery>
+        <div class="column">
+            <app-section-header [text]="'Luces led'"></app-section-header>
+            <app-product-gallery [products]="bestSellersProducts"></app-product-gallery>
+        </div>
     </div>
 </div>

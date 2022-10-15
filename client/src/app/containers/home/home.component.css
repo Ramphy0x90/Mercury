@@ -4,19 +4,25 @@ app-gallery {
 
 .section {
     display: flex;
-    gap: var(--mercury-space-1);
+    gap: var(--mercury-space-2);
     flex-direction: column;
-    padding: var(--mercury-space-2);
+    margin: var(--mercury-space) 0;
+    padding: var(--mercury-space-1);
+}
+
+.section .column {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0px 6px 15px -3px rgba(0,0,0,0.15);
+    padding: var(--mercury-space-1);
 }
 
 .primary-section .left-column {
     flex: 0 0 35%;
-    overflow: hidden;
 }
 
 .primary-section .right-column {
-    flex: 0 1 65%;
-    overflow: hidden;
+    flex: 1 1 65%;
 }
 
 @media (min-width: 576px) { }
@@ -34,6 +40,10 @@ app-gallery {
 @media (min-width: 992px) {
     .primary-section {
         flex-direction: row;
+    }
+
+    .primary-section .left-column {
+        max-width: 600px;
     }
 }
 

@@ -3,6 +3,10 @@
     justify-content: center;
 }
 
+#gallery, .carousel-inner{
+    border-radius: var(--mercury-box-radius);
+}
+
 .carousel {
     flex: 1 1 100%;
     height: var(--mercury-main-gallery-h);
@@ -40,8 +44,8 @@
 
 @media (min-width: 768px) { }
 
-@media (min-width: 992px) {}
+@media (min-width: 992px) { }
 
 @media (min-width: 1200px) { }
 
-@media (min-width: 1400px) {}
+@media (min-width: 1400px) { }
